@@ -1,0 +1,150 @@
+GIT : Global Information Tracker
+
+git is a type of file system which has version control feature
+
+git has version id or hash id by this we can roll-back our deleted file.
+
+Types >
+
+VCS : Version control system
+
+DVCS > Distributed Version control system
+
+CVCS > centralized Version control system
+
+TO enable version control
+
+CMD > sudo dnf install git -y
+
+CMD > git init
+
+when we use CMD > ls -al .git hidden folder will get visible
+
+To get file untracked to stage we use CMD > git add i.e git add nibba.txt
+
+To restore file from git CMD > git restore commands.txt
+
+For unstage we use CMD > git restore --staged commands.txt
+
+For commit we use CMD > git commit
+
+git commit -m "feat: nibba nibbi added to repo/relationship"
+
+git commit -m "fix: added newer commands"
+
+To see which file we have commited CMD > git status
+
+ls git add himani.txt git commit -m "feat: nihal added to repo/papa" git log
+
+how to restore file by version control id
+
+To define author who have added the file in git version control git config --global user.name "NIHALPAPA" git config --global user.email "papanihal360@gmail.com"
+
+when you add a file in versioning control can observe your name in author i.e commit 5a5ce7f687061b437c2417aa9d5650c0855571 (HEAD -> master) Author: NIHALPAPA papanihal360@gmail.com Date: Tue Feb 20 07:10:53 2024 +0000
+
+latest commit jo point kr rha h version system mein commit 5a5ce7f687061b437c2417aa9d5650c085d571 (HEAD -> master) Author: NIHALPAPA papanihal360@gmail.com Date: Tue Feb 20 07:10:53 2024 +0000
+
+feat: commands.txt version 3 file system
+
+Branch concept Main branch name is Master
+
+to check the branch name CMD > git branch
+
+for a safer side we will use new branch for our project CMD > git checkout -b dev (this will show switch to a new branch)
+
+-b stands for create a new branch
+
+switch between branches git checkout master
+
+touch dev.txt git add dev.txt git commit -m "feat: added dev file"
+
+For getting git hub file in local machine or ec2 instance git by pasting below command by git account repository link git clone https://github.com/NIHALPAPA/my-first-terraform-project.git
+
+Pull file from origin or github repository
+
+pull from Remote machine CMD > git pull origin main
+
+pushing file to Remote machine we are giving developer access to our github repository
+
+setting to do in github account where our main repo is store so we can push our file to main repo Account setting > developer setting > personal access token (classic) > Generate a personal access token
+
+To execute this CMD we have to be in the directory which has been clone from Git-Hub Account pushing file to Remote machine
+
+Check for Existing Remote > git remote -v
+git remote -v we will get after this CMD
+
+origin https://github.com/NIHALPAPA/my-first-terraform-project.git (fetch) origin https://github.com/NIHALPAPA/my-first-terraform-project.git (push)
+
+Add Remote Before Setting URL > git remote add origin https://Access-Token@github.com/NIHALPAPA/devops-batch-6.git
+
+Set URL for Existing Remote "origin" > git remote set-url origin https://Access-Token@github.com/NIHALPAPA/devops-batch-6.git
+
+Check for Existing Remote > git remote -v
+
+Operate through ssh for github git clone sshlink
+
+CMD > git clone git@github.com:NIHALPAPA/my-first-terraform-project.git there will be denied in ssh key
+
+ssh-keygen add a new public key to SSH Keys in github account
+
+GIT_SSH_COMMAND="ssh -i /home/ubuntu/.ssh/github_key" git clone git@github.com:NIHALPAPA/my-first-terraform-project.git
+
+To save local changes in git CMD > git stash
+
+To check what changes and made in a file CMD > git diff
+
+How to revert the commit copy the commit id which you want to revert
+
+git revert commit-id
+
+i.e git revert fda3cf3
+
+Never use this CMD this will terminate furthur files of git log
+
+CMD > git reset d92d3f8 (use in only emergency)
+
+New concept > Merge/ Rebase
+
+For safer side switch to base branch i.e Master
+
+CMD > git switch master
+
+CMD > git merge dev (this command transfer the HEAD to master to default branch of git)
+
+New concept > Rebase
+
+Rebase is use for proper alligning of the commits in a series according to their upload
+
+CMD > git rebase master
+
+New concept > code and files transfer to github from ec2 instance CMD > git remote add origin https://github.com/NIHALPAPA/devops-batch-6.git CMD > git remote -v This will display after this cmd origin https://github.com/NIHALPAPA/devops-batch-6.git (fetch) origin https://github.com/NIHALPAPA/devops-batch-6.git (push)
+
+setting to do in github account where our main repo is store so we can push our file to main repo Account setting > developer setting > personal access token (classic) > Generate a personal access token
+
+CMD > git status -1:41:50
+
+make repository in github (repo name should be same in github as well as ec2 instance) i.e > devops-batch-6
+
+CMD > git remote -v (to check rather remote exist or not)
+
+CMD > git remote add origin https://github.com/NIHALPAPA/devops-batch-6.git
+
+CMD > git remote -v
+
+CMD > git remote set-url origin https://Access-Token@github.com/NIHALPAPA/devops-batch-6.git
+
+CMD > git push origin master
+
+CMD > git pull origin master
+
+New concept > Branch protection rule for Github
+
+select a branch > go to its setting > branches > add branch protection rules
+
+add branch name in > branch name pattern
+
+select options > Require a pull request before merging Require approval
+
+New concept > When branch is not visible in EC-2 machine CMD > git branch CMD > git pull origin staging CMD > git checkout staging CMD > git branch
+
+To fetch all the branches CMD > git fetch --all
